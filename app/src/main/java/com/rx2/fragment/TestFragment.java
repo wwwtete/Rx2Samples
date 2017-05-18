@@ -16,9 +16,14 @@ public class TestFragment extends BaseFragment {
         fragment.setArguments(args);
         return fragment;
     }
-    
+
     @Override
     public String getSampleName() {
         return "Test";
     }
+
+    @Override
+    protected void onInitData() {
+    }
+
 }

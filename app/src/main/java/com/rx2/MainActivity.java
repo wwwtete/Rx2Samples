@@ -3,7 +3,7 @@ package com.rx2;
 import android.os.Bundle;
 
 import com.rx2.activity.BaseActivity;
-import com.rx2.fragment.TestFragment;
+import com.rx2.fragment.CreateFrag;
 
 public class MainActivity extends BaseActivity {
 
@@ -12,8 +12,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main);
         setDefaultView();
-        addSample(TestFragment.newInstance());
-
+        addSample(CreateFrag.class);
     }
 
     @Override

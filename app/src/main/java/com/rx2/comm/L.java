@@ -13,4 +13,8 @@ public class L {
     public static void d(String s) {
         Log.d(TAG,s);
     }
+
+    public static void e(String s) {
+        Log.e(TAG,s);
+    }
 }

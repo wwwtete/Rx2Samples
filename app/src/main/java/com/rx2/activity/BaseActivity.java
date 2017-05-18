@@ -50,6 +50,7 @@ public abstract class BaseActivity extends AppCompatActivity implements SamplesM
                 .replace(R.id.fl_content,fragment)
                 .addToBackStack(fragment.toString())
                 .commitAllowingStateLoss();
+        mFlContent.setVisibility(View.VISIBLE);
         mListView.setVisibility(View.GONE);
     }
 
@@ -62,6 +63,12 @@ public abstract class BaseActivity extends AppCompatActivity implements SamplesM
 
         }
 
+    }
+
+    protected void addSample(Class<? extends BaseFragment> fragment){
+        if (mListView != null){
+            mListView.addSample(fragment);
+        }
     }
 
     protected void addSample(BaseFragment fragment){

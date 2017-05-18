@@ -19,6 +19,7 @@ import com.rx2.fragment.BaseFragment;
 public class SampleListView extends RecyclerView implements RecyclerViewAdapter.OnItemClickListener {
 
     private SamplesAdapter mAdapter;
+    private OutputView mOutputView;
 
     public SampleListView(Context context) {
         super(context);
@@ -43,6 +44,14 @@ public class SampleListView extends RecyclerView implements RecyclerViewAdapter.
 
     }
 
+    public OutputView getOutputView() {
+        return mOutputView;
+    }
+
+    public void setOutputView(OutputView outputView) {
+        mOutputView = outputView;
+    }
+
     public void addSample(BaseFragment fragment){
         mAdapter.add(fragment);
     }
@@ -64,6 +73,8 @@ public class SampleListView extends RecyclerView implements RecyclerViewAdapter.
             getContext().startActivity(new Intent(getContext(), data.getClass()));
         else if (BaseFragment.class.isAssignableFrom(data.getClass())){
             ((BaseActivity)getContext()).replaceFragment((BaseFragment) data);
+        }else if (data instanceof Operation && mOutputView != null){
+                ((Operation) data).onOperat(mOutputView);
         }
     }
 }
